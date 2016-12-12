@@ -13,6 +13,8 @@ window.onload = function() {
 
   var bankView = new BankView(bank);
 
+  bankView.addInterestButton(10);
+
   bankView.renderTotal("total");
   bankView.renderTotalsByType("business-total", "business");
   bankView.renderTotalsByType("personal-total", "personal");
@@ -20,5 +22,7 @@ window.onload = function() {
 
   bankView.populateAccountList("business-accounts", bank.filteredAccounts('business'));
   bankView.populateAccountList("personal-accounts", bank.filteredAccounts('personal'));
+
+  
 
 };

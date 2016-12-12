@@ -20,6 +20,13 @@ BankView.prototype = {
         item.innerText = account.owner + ": £" + account.amount;
       document.getElementById(id).appendChild(item);
     }
+  },
+
+  addInterestButton: function(interest){
+    var button = document.getElementById('button-place');
+    button.onlick = function(){
+      this.bank.chargeInterest(interest);
+    }
   }
 
 }
