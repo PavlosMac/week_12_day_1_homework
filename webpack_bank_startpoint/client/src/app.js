@@ -9,11 +9,16 @@ window.onload = function() {
   for(accountData of sampleAccounts){
     bank.addAccount(new Account(accountData));
   }
+
+
+  localStorage.setItem('myAccounts', JSON.stringify(bank));
+
+
+  retrievedBank = JSON.parse(localStorage.getItem('myAccounts'));
+  
   console.log("we created a new bank", bank);
-
-  var bankView = new BankView(bank);
-
-  bankView.addInterestButton(10);
+  console.log(retrievedObject)
+  var bankView = new BankView(retrievedObject);
 
   bankView.renderTotal("total");
   bankView.renderTotalsByType("business-total", "business");
@@ -23,6 +28,9 @@ window.onload = function() {
   bankView.populateAccountList("business-accounts", bank.filteredAccounts('business'));
   bankView.populateAccountList("personal-accounts", bank.filteredAccounts('personal'));
 
-  
+  bankView.addInterestButton(10);
+
+
+
 
 };
